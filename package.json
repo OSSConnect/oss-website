@@ -9,15 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@react-three/drei": "^10.7.8",
-    "@react-three/fiber": "^9.7.0",
-    "@types/three": "^0.185.4",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.14.0",
     "next": "16.2.4",
     "react": "19.2.5",
-    "react-dom": "19.2.5",
-    "three": "^0.185.1"
+    "react-dom": "19.2.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.4",

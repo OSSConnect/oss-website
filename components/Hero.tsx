@@ -1,12 +1,11 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ArrowRight, GitPullRequest } from "lucide-react";
 import { heroStats } from "@/lib/data";
 import CountUp from "./CountUp";
-
-const HeroOrb = dynamic(() => import("./HeroOrb"), { ssr: false });
+import AnimatedWords from "./AnimatedWords";
+import TiltText from "./TiltText";
 
 export default function Hero() {
   return (
@@ -16,11 +15,8 @@ export default function Hero() {
         className="pointer-events-none absolute -top-32 left-1/2 h-96 w-[36rem] -translate-x-1/2 rounded-full bg-oss-lime/10 blur-[120px]"
         aria-hidden
       />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] opacity-70">
-        <HeroOrb />
-      </div>
 
-      <div className="relative mx-auto max-w-6xl px-6 pt-24 pb-16 text-center">
+      <TiltText className="relative mx-auto max-w-6xl px-6 pt-36 pb-16 text-center sm:pt-44">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -31,34 +27,24 @@ export default function Hero() {
           OSS — LET&rsquo;S CONNECT
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-glow mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
-        >
-          Building India&rsquo;s next generation
+        <h1 className="text-glow mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+          <AnimatedWords text="Building India’s next generation" delay={0.1} />
           <br />
-          <span className="text-oss-lime">of open-source contributors.</span>
-        </motion.h1>
+          <AnimatedWords
+            text="of open-source contributors."
+            delay={0.28}
+            className="text-oss-lime"
+          />
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-xl text-balance text-base text-oss-muted sm:text-lg"
-        >
-          A contributor-driven open-source community turning curiosity into
-          meaningful contribution — from first commit to confident
-          contributor.
-        </motion.p>
+        <p className="mx-auto mt-6 max-w-xl text-balance text-base text-oss-muted sm:text-lg">
+          <AnimatedWords
+            text="A contributor-driven open-source community turning curiosity into meaningful contribution — from first commit to confident contributor."
+            delay={0.42}
+          />
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-9 flex flex-wrap items-center justify-center gap-4"
-        >
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
           <a
             href="#community"
             className="group flex items-center gap-2 rounded-full bg-oss-lime px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-[1.03]"
@@ -72,14 +58,9 @@ export default function Hero() {
           >
             See our achievers
           </a>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-          className="mx-auto mt-20 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-oss-border bg-oss-border sm:grid-cols-4"
-        >
+        <div className="mx-auto mt-20 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-oss-border bg-oss-border sm:grid-cols-4">
           {heroStats.map((s) => (
             <div key={s.label} className="bg-oss-bg px-4 py-6 text-left sm:text-center">
               <div className="font-display text-3xl font-semibold text-oss-lime">
@@ -89,8 +70,8 @@ export default function Hero() {
               <div className="mt-0.5 text-xs text-oss-muted">{s.detail}</div>
             </div>
           ))}
-        </motion.div>
-      </div>
+        </div>
+      </TiltText>
     </section>
   );
 }

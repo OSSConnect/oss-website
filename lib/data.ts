@@ -1,7 +1,7 @@
 export const heroStats = [
   { value: "800+", label: "Members", detail: "Contributors across borders" },
   { value: "500+", label: "Students Supported", detail: "Through first OSS milestones" },
-  { value: "20+", label: "Partner Projects", detail: "Across the OSS ecosystem" },
+  { value: "20+", label: "Projects", detail: "Across the OSS ecosystem" },
   { value: "10", label: "Knowledge Sessions", detail: "Shared in the first months" },
 ];
 
