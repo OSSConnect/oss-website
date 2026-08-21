@@ -8,7 +8,7 @@ export default function Sessions() {
       <div className="mx-auto max-w-6xl px-6 py-24">
         <FadeIn className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="mono-tag text-xs text-oss-lime">06 — LEARNING IN PUBLIC</span>
+            <span className="mono-tag text-xs text-oss-lime">07 — LEARNING IN PUBLIC</span>
             <h2 className="mt-4 max-w-lg font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Sessions &amp; knowledge sharing.
             </h2>

@@ -7,7 +7,7 @@ export default function Roadmap() {
     <section className="border-b border-oss-border/60">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <FadeIn>
-          <span className="mono-tag text-xs text-oss-lime">08 — OUR NEXT CHAPTER</span>
+          <span className="mono-tag text-xs text-oss-lime">09 — OUR NEXT CHAPTER</span>
           <h2 className="mt-4 max-w-lg font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Roadmap 2026 – 27.
           </h2>

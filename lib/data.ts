@@ -1,3 +1,110 @@
+export type Testimonial = {
+  name: string;
+  quote: string;
+};
+
+export const testimonials: Testimonial[] = [
+  { name: "Avinash", quote: "Everyone is so kind and humble here. I love to talk to them." },
+  {
+    name: "Ankit Ram",
+    quote:
+      "An absolute gem of a group with great people who are up for any kind of help — literally the best thing in the India OSS community.",
+  },
+  {
+    name: "Vijay Fulwariya",
+    quote:
+      "It took me around 20 days of effort to see my first PR merged, and that moment was truly special. Still learning, still contributing, just getting started.",
+  },
+  {
+    name: "Mohammad Sakib",
+    quote:
+      "The people here helped me understand how to approach open source, choose the right projects, and contribute more effectively.",
+  },
+  {
+    name: "Atishay Jain",
+    quote:
+      "The meets, the insights, the people around, and the mentorship — not just from the mods but the entire community — helped me a lot. Exactly like OSS!",
+  },
+  {
+    name: "Mithul Nama",
+    quote:
+      "There is no unnecessary hierarchy. Anyone can ask questions, share their thoughts, or help others — that makes the community very welcoming.",
+  },
+  {
+    name: "Akshita Singh",
+    quote:
+      "Being able to see how the community works together made all the difference. Thanks to that support, I merged my very first PR in Meshery!",
+  },
+  {
+    name: "Suyog Habbu",
+    quote:
+      "I came to know about the Headlamp project from this community and now I'm an active contributor there. This community helped me get there.",
+  },
+  {
+    name: "Krishna Garg",
+    quote:
+      "I've got 4 PRs merged on pandas-stubs and pandas — slow but steady, thanks to such good mentors and the weekly meets.",
+  },
+  {
+    name: "Neel Kumar",
+    quote:
+      "This was my first time being in a community that truly feels like one — people here are so active and genuine.",
+  },
+  {
+    name: "Rishi Singh",
+    quote:
+      "I had 3 merged PRs before submitting my LFX proposal, all guided from that very first offline meet. It all started there.",
+  },
+  {
+    name: "Gaurav Patil",
+    quote:
+      "The community spread awareness about open source when it was still a niche sector — beginners now have a space to ask doubts without hesitation.",
+  },
+  {
+    name: "Jitendra Rewar",
+    quote:
+      "My journey started with GSSoC, then Apicurio Registry as part of the LFX project. Getting PRs merged and reviewing others' PRs has been a great learning experience.",
+  },
+  {
+    name: "Shivam Singh",
+    quote:
+      "The community feels like a family — serious talks, funny chats, and learning sessions. Helpful not just for open source but for becoming a good software dev.",
+  },
+  {
+    name: "Chandan Sahoo",
+    quote:
+      "After joining I felt a positive peer pressure — in 2-3 weeks I made 3-4 PRs, real bugs and features, not just docs. It made me believe I could contribute meaningfully.",
+  },
+  {
+    name: "Siri",
+    quote:
+      "Our admin's advice to find the 'why' behind the code genuinely helped. Currently I'm focused on trying to contribute to LLVM.",
+  },
+  {
+    name: "Ashish Tomer",
+    quote:
+      "For the last month I've been contributing to Rucio, a CERN-based data management system — 2 merged PRs so far. If I want to know something, I just ping the group.",
+  },
+  {
+    name: "Aaysha Sinha",
+    quote:
+      "The team guided us at every step, and there was never such a thing as a stupid doubt. Really grateful to have found such a supportive community.",
+  },
+  {
+    name: "Ritu Raj",
+    quote:
+      "Even though I didn't participate in LFX or GSoC, this group motivated me to start contributing — I've got around 6-7 PRs merged since joining.",
+  },
+  {
+    name: "Tushar Motwani",
+    quote:
+      "The discussions about open source gave me a lot of insight and motivation to contribute with real value. Just got my first PR merged in a workflow builder SaaS.",
+  },
+];
+
+export const testimonialsSheetUrl =
+  "https://docs.google.com/spreadsheets/d/1YyJwAqBSvlx1HkpZDNJRHQCWN8ImTPPxwpXt2PCDeBI/edit?usp=sharing";
+
 export const heroStats = [
   { value: "800+", label: "Members", detail: "Contributors across borders" },
   { value: "500+", label: "Students Supported", detail: "Through first OSS milestones" },

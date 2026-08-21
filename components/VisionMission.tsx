@@ -6,7 +6,7 @@ export default function VisionMission() {
     <section className="border-b border-oss-border/60">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <FadeIn>
-          <span className="mono-tag text-xs text-oss-lime">05 — PURPOSE &amp; DIRECTION</span>
+          <span className="mono-tag text-xs text-oss-lime">06 — PURPOSE &amp; DIRECTION</span>
           <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Vision &amp; mission.
           </h2>

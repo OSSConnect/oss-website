@@ -6,7 +6,7 @@ export default function Ecosystem() {
     <section className="border-b border-oss-border/60">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <FadeIn>
-          <span className="mono-tag text-xs text-oss-lime">07 — ECOSYSTEM</span>
+          <span className="mono-tag text-xs text-oss-lime">08 — ECOSYSTEM</span>
           <h2 className="mt-4 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Exposure across a wide range of organisations.
           </h2>

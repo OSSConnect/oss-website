@@ -4,6 +4,7 @@ import About from "@/components/About";
 import WhyWeExist from "@/components/WhyWeExist";
 import Impact from "@/components/Impact";
 import Achievements from "@/components/Achievements";
+import Testimonials from "@/components/Testimonials";
 import VisionMission from "@/components/VisionMission";
 import Sessions from "@/components/Sessions";
 import Ecosystem from "@/components/Ecosystem";
@@ -20,6 +21,7 @@ export default function Home() {
       <WhyWeExist />
       <Impact />
       <Achievements />
+      <Testimonials />
       <VisionMission />
       <Sessions />
       <Ecosystem />

@@ -14,7 +14,7 @@ export default function GetInvolved() {
           />
 
           <div className="relative text-center">
-            <span className="mono-tag text-xs text-oss-lime">09 — LET&rsquo;S BUILD TOGETHER</span>
+            <span className="mono-tag text-xs text-oss-lime">10 — LET&rsquo;S BUILD TOGETHER</span>
             <h2 className="mx-auto mt-4 max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Your first PR is closer than you think.
             </h2>
