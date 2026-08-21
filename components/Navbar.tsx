@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import LinkedinIcon from "./icons/LinkedinIcon";
+import GithubIcon from "./icons/GithubIcon";
 import { contact } from "@/lib/data";
 
 const LINKS = [
@@ -18,11 +20,15 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-oss-border/70 bg-oss-bg/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2 font-display text-sm font-semibold tracking-tight">
-          <span className="text-oss-lime">{"<."}</span>
-          <span>oss</span>
-          <span className="text-oss-border">|</span>
-          <span className="text-oss-muted">Let&rsquo;s connect</span>
+        <a href="/" className="flex items-center">
+          <Image 
+            src="/osslogo.png" 
+            alt="OSS | Let's Connect Logo" 
+            width={48} 
+            height={48} 
+            className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover" 
+            priority
+          />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -46,6 +52,15 @@ export default function Navbar() {
           >
             <LinkedinIcon size={16} />
             LinkedIn
+          </a>
+          <a
+            href="https://github.com/OSSConnect"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-1.5 text-sm text-oss-muted transition-colors hover:text-oss-text"
+          >
+            <GithubIcon size={16} />
+            GitHub
           </a>
           <a
             href="#community"
@@ -77,6 +92,26 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <div className="flex items-center gap-4 py-2">
+              <a
+                href={contact.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 text-sm text-oss-muted transition-colors hover:text-oss-text"
+              >
+                <LinkedinIcon size={16} />
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/OSSConnect"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 text-sm text-oss-muted transition-colors hover:text-oss-text"
+              >
+                <GithubIcon size={16} />
+                GitHub
+              </a>
+            </div>
             <a
               href="#community"
               onClick={() => setOpen(false)}
