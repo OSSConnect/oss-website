@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-oss-bg: #08090a;
-  --color-oss-panel: #101214;
-  --color-oss-card: #14171a;
-  --color-oss-border: #23272b;
-  --color-oss-text: #d7dadd;
-  --color-oss-muted: #8b9297;
-  --color-oss-lime: #37ff00;
-  --color-oss-lime-dim: #1f8a00;
-  --color-oss-amber: #ffb020;
+  --color-oss-bg: #fdfdfc; /* Warm/off-white background */
+  --color-oss-panel: #ffffff;
+  --color-oss-card: #f3f4f6; /* Very light gray/off-white for cards */
+  --color-oss-border: #e2e8f0;
+  --color-oss-text: #0f172a; /* Near-black typography */
+  --color-oss-muted: #64748b;
+  
+  --color-oss-green-deep: #064e3b; /* Deep OSS green */
+  --color-oss-green: #10b981; /* Medium green / CTAs */
+  --color-oss-mint: #ccfbf1; /* Mint/teal accent */
+  --color-oss-yellow: #fef08a; /* Very limited yellow accent */
+
   --font-display: var(--font-space-grotesk);
   --font-body: var(--font-inter);
 }
@@ -22,26 +25,39 @@ body {
   background-color: var(--color-oss-bg);
   color: var(--color-oss-text);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  color: #08090a;
-  background-color: #37ff00;
+  color: #fdfdfc;
+  background-color: var(--color-oss-green-deep);
 }
 
 .font-display {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
-.text-glow {
-  text-shadow: 0 0 40px rgba(55, 255, 0, 0.25);
+/* For dark sections */
+.dark-section {
+  background-color: var(--color-oss-green-deep);
+  color: #fdfdfc;
+}
+.dark-section .text-oss-muted {
+  color: #94a3b8;
 }
 
 .bg-grid {
   background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.dark-section .bg-grid {
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 44px 44px;
 }
 
 .mono-tag {
@@ -64,4 +80,13 @@ body {
 
 .marquee-container:hover .marquee-track {
   animation-play-state: paused;
+}
+
+/* Hide scrollbar for carousels */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
