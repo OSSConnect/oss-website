@@ -1,43 +1,78 @@
-import FadeIn from "./FadeIn";
-import { gapSteps } from "@/lib/data";
+"use client";
+
+import { Search, Code2, Users, TrendingUp } from "lucide-react";
 
 export default function WhyWeExist() {
+  const journey = [
+    {
+      num: "01",
+      title: "Discover",
+      desc: "Where should I start?",
+      icon: Search,
+    },
+    {
+      num: "02",
+      title: "Contribute",
+      desc: "How do real projects actually work?",
+      icon: Code2,
+    },
+    {
+      num: "03",
+      title: "Collaborate",
+      desc: "How do I work with maintainers and communities professionally?",
+      icon: Users,
+    },
+    {
+      num: "04",
+      title: "Grow",
+      desc: "How do I turn my first contribution into long-term impact?",
+      icon: TrendingUp,
+    },
+  ];
+
   return (
-    <section className="border-b border-oss-border/60">
-      <div className="mx-auto max-w-6xl px-6 py-24">
-        <FadeIn>
-          <span className="mono-tag text-xs text-oss-lime">02 — WHY WE EXIST</span>
-          <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            The gap isn&rsquo;t learning to code.
-            <br />
-            It&rsquo;s <span className="text-oss-lime">learning to contribute.</span>
-          </h2>
-          <p className="mt-5 max-w-xl text-sm leading-relaxed text-oss-muted sm:text-base">
-            India has no shortage of developer talent. What many learners
-            lack is a clear pathway into real open-source communities — how
-            to find the right project, work with maintainers, ship
-            meaningful changes, and keep growing.
-          </p>
-        </FadeIn>
+    <section className="bg-oss-green-deep text-white py-24" id="about">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          
+          {/* Left: Narrative */}
+          <div className="lg:col-span-5 flex flex-col gap-6 sticky top-32">
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-oss-mint">
+              Why we exist?
+            </h3>
+            <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight leading-tight">
+              We exist to make OSS meaningful, accessible and healthy.
+            </h2>
+            <p className="text-lg text-white/80 leading-relaxed mt-4">
+              India has no shortage of talent, but there is a gap in mentorship and awareness. 
+              We try to put our hearts and souls into reducing this gap by helping new contributors make genuine, healthy contributions rather than flaky ones.
+            </p>
+          </div>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-oss-border bg-oss-border sm:grid-cols-2">
-          {gapSteps.map((step, i) => (
-            <FadeIn key={step.number} delay={i * 0.08} className="bg-oss-panel p-7">
-              <span className="mono-tag text-oss-lime">{step.number}</span>
-              <h3 className="mt-2 font-display text-lg font-semibold">{step.title}</h3>
-              <p className="mt-1 text-sm text-oss-muted">{step.question}</p>
-            </FadeIn>
-          ))}
+          {/* Right: Journey Steps */}
+          <div className="lg:col-span-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 relative">
+              {journey.map((step, i) => (
+                <div 
+                  key={i} 
+                  className="relative group p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                >
+                  <div className="mb-6 flex items-center justify-between">
+                    <span className="font-display text-3xl font-bold text-oss-mint/60 group-hover:text-oss-mint transition-colors">
+                      {step.num}
+                    </span>
+                    <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-oss-mint group-hover:scale-110 transition-transform">
+                      <step.icon size={24} />
+                    </div>
+                  </div>
+                  <h4 className="text-2xl font-semibold mb-3">{step.title}</h4>
+                  <p className="text-white/70">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          
         </div>
-
-        <FadeIn delay={0.2} className="mt-6 rounded-2xl bg-oss-lime/10 p-7 text-center sm:p-8">
-          <p className="text-sm text-oss-muted sm:text-base">
-            We build the bridge from{" "}
-            <span className="font-medium text-oss-text">curious developer</span> →{" "}
-            <span className="font-medium text-oss-text">confident contributor</span> →{" "}
-            <span className="font-medium text-oss-lime">community leader</span>.
-          </p>
-        </FadeIn>
       </div>
     </section>
   );

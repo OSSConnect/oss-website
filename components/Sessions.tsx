@@ -25,22 +25,24 @@ export default function Sessions() {
           </div>
         </FadeIn>
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-oss-border bg-oss-border sm:grid-cols-2">
+        <div className="mt-12 columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           {sessionTopics.map((topic, i) => (
-            <FadeIn key={topic.number} delay={i * 0.06} className="bg-oss-panel p-6">
-              <span className="mono-tag text-oss-lime">{topic.number}</span>
-              <h3 className="mt-2 text-sm font-semibold">{topic.title}</h3>
-              <p className="mt-1 text-xs text-oss-muted">{topic.detail}</p>
+            <FadeIn key={topic.number} delay={i * 0.06} className="break-inside-avoid">
+              <div className="rounded-2xl border border-oss-border bg-oss-card/40 hover:bg-oss-card p-6 shadow-sm transition-all duration-300">
+                <span className="mono-tag text-oss-lime">{topic.number}</span>
+                <h3 className="mt-2 text-lg font-display font-semibold tracking-tight">{topic.title}</h3>
+                <p className="mt-2 text-sm text-oss-muted/80">{topic.detail}</p>
+              </div>
             </FadeIn>
           ))}
         </div>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="mt-12 columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           {sessionFeedback.map((quote, i) => (
-            <FadeIn key={quote} delay={0.1 + i * 0.08}>
-              <div className="flex items-start gap-3 rounded-2xl border border-oss-border bg-oss-panel p-6">
-                <MessageSquareQuote className="mt-0.5 shrink-0 text-oss-lime" size={18} />
-                <p className="text-sm italic text-oss-muted">&ldquo;{quote}&rdquo;</p>
+            <FadeIn key={quote} delay={0.1 + i * 0.08} className="break-inside-avoid">
+              <div className="flex flex-col gap-3 rounded-2xl border border-oss-border bg-oss-panel/80 p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+                <MessageSquareQuote className="shrink-0 text-oss-lime" size={20} />
+                <p className="text-sm italic leading-relaxed text-oss-muted/90">&ldquo;{quote}&rdquo;</p>
               </div>
             </FadeIn>
           ))}
