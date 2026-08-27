@@ -1,48 +1,41 @@
-import { createClient } from "@/lib/supabase/server";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import EcosystemStrip from "@/components/EcosystemStrip";
-import WhyWeExist from "@/components/WhyWeExist";
-import MindsetShift from "@/components/MindsetShift";
-import ProgramsGrid from "@/components/ProgramsGrid";
-import CommunityCarousel from "@/components/CommunityCarousel";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
-import UserPath from "@/components/UserPath";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingSocials from "@/components/FloatingSocials";
+import dynamic from 'next/dynamic';
 
-export default async function Home() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+import LoadingScreen from "@/components/LoadingScreen";
+const Marquee = dynamic(() => import('@/components/Marquee'), { ssr: true });
+const ProblemSolution = dynamic(() => import('@/components/ProblemSolution'), { ssr: true });
+const Metrics = dynamic(() => import('@/components/Metrics'), { ssr: true });
+const Achievements = dynamic(() => import('@/components/Achievements'), { ssr: true });
+const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: true });
+const PoweredBy = dynamic(() => import('@/components/PoweredBy'), { ssr: true });
+const CTA = dynamic(() => import('@/components/CTA'), { ssr: true });
+const Purpose = dynamic(() => import('@/components/Purpose'), { ssr: true });
+const Sessions = dynamic(() => import('@/components/Sessions'), { ssr: true });
+const Roadmap = dynamic(() => import('@/components/Roadmap'), { ssr: true });
 
+export default function Home() {
   return (
-    <main className="bg-oss-bg min-h-screen">
-      <Navbar user={user} />
-      
-      {/* 1. Hero with Ecosystem Orbits */}
-      <Hero />
-      
-      {/* 2. Ecosystem Logo Strip */}
-      <EcosystemStrip />
-      
-      {/* 3. Narrative & Journey */}
-      <WhyWeExist />
-      
-      {/* 4. Scroll Animation & Metrics */}
-      <MindsetShift />
-      
-      {/* 5. Collaboration Programs */}
-      <ProgramsGrid />
-      
-      {/* 6. People Building in the Open */}
-      <CommunityCarousel />
-      
-      {/* 7. Community Testimonials */}
-      <TestimonialCarousel />
-      
-      {/* 8. What Brings You Here? */}
-      <UserPath />
-      
+    <div className="bg-black min-h-screen text-white font-sans selection:bg-emerald-500/30 selection:text-emerald-200 relative">
+      <LoadingScreen />
+      <Navbar />
+      <FloatingSocials />
+      <main className="flex min-h-screen flex-col items-center justify-between">
+        <Hero />
+        <Marquee />
+        <PoweredBy />
+        <ProblemSolution />
+        <Metrics />
+        <Achievements />
+        <Testimonials />
+        <Purpose />
+        <Sessions />
+        <Roadmap />
+        <CTA />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
