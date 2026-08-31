@@ -1,23 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
-import Link from "next/link";
-import { signInWithGithub, signOut } from "@/app/actions/auth";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { User as UserIcon } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
-const LINKS = [
-  { href: "#explore", label: "Explore" },
-  { href: "#community", label: "Community" },
-  { href: "#programs", label: "Programs" },
-  { href: "#impact", label: "Impact" },
-  { href: "/resources", label: "Resources" },
-];
-
-export default function Navbar({ user }: { user?: any }) {
-  const [open, setOpen] = useState(false);
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,91 +17,58 @@ export default function Navbar({ user }: { user?: any }) {
   }, []);
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? "bg-white/80 backdrop-blur-md border-b border-oss-border shadow-sm py-3" 
-          : "bg-transparent py-5"
+    <nav 
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10 py-4" : "bg-transparent py-6"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
-          <div className="w-8 h-8 rounded-full bg-oss-green-deep flex items-center justify-center text-white">
-            <span className="text-sm">{"<."}</span>
-          </div>
-          <span className="text-oss-text">OSS | Let&rsquo;s Connect</span>
-        </Link>
-
-        <div className="hidden items-center gap-8 md:flex">
-          {LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-oss-muted transition-colors hover:text-oss-green-deep"
-            >
-              {link.label}
-            </Link>
-          ))}
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        
+        <div className="flex items-center gap-3">
+          <Image src="/oss-connect-logo.png" alt="Logo" width={32} height={32} className="rounded-full" />
+          <span className="text-white font-display text-xl font-bold tracking-tight">OSS | Let's connect</span>
         </div>
 
-        <div className="hidden items-center gap-4 md:flex">
-          {user ? (
-            <div className="flex items-center gap-4">
-              <Avatar className="h-9 w-9 border border-oss-border">
-                <AvatarImage src={user.user_metadata?.avatar_url} />
-                <AvatarFallback><UserIcon size={16} /></AvatarFallback>
-              </Avatar>
-              <form action={signOut}>
-                <button type="submit" className="text-sm font-medium text-oss-muted hover:text-oss-text transition-colors">
-                  Logout
-                </button>
-              </form>
-            </div>
-          ) : (
-            <div className="flex items-center gap-6">
-              <Link
-                href="#join"
-                className="group flex items-center gap-2 rounded-full bg-oss-green-deep px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-opacity-90 hover:shadow-md"
-              >
-                Join Community 
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-          )}
+        <div className="hidden md:flex items-center gap-8">
+          <a href="#about" className="text-sm font-medium text-neutral-300 hover:text-white transition-colors">About</a>
+          <a href="#achievements" className="text-sm font-medium text-neutral-300 hover:text-white transition-colors">Achievements</a>
+          <a href="#sessions" className="text-sm font-medium text-neutral-300 hover:text-white transition-colors">Sessions</a>
+          <a href="#community" className="text-sm font-medium text-neutral-300 hover:text-white transition-colors">Community</a>
         </div>
 
-        <button
-          className="md:hidden text-oss-text"
-          aria-label="Toggle menu"
-          onClick={() => setOpen((v) => !v)}
+        <div className="hidden md:flex items-center gap-4">
+          <a href="https://linkedin.com/company/oss-connected" target="_blank" className="text-sm font-medium text-neutral-300 hover:text-white transition-colors">
+            LinkedIn
+          </a>
+          <a 
+            href="https://chat.whatsapp.com/Bw3H2hVoUZy8AZZs96QdUy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center justify-center px-6 py-2 rounded-full bg-white text-black font-medium hover:bg-neutral-200 transition-colors"
+          >
+            Join us
+          </a>
+        </div>
+
+        <button 
+          className="md:hidden text-white"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X /> : <Menu />}
         </button>
-      </nav>
+      </div>
 
-      {open && (
-        <div className="absolute top-full left-0 right-0 bg-white border-b border-oss-border px-6 pb-6 pt-4 shadow-lg md:hidden">
-          <div className="flex flex-col gap-5">
-            {LINKS.map((link) => (
-               <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="text-base font-medium text-oss-text"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="#join"
-              onClick={() => setOpen(false)}
-              className="mt-4 flex w-fit items-center gap-2 rounded-full bg-oss-green-deep px-6 py-3 text-sm font-medium text-white"
-            >
-              Join Community <ArrowRight size={16} />
-            </Link>
-          </div>
+      {mobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b border-white/10 py-6 px-6 flex flex-col gap-4 shadow-xl">
+          <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-lg text-neutral-300">About</a>
+          <a href="#achievements" onClick={() => setMobileMenuOpen(false)} className="text-lg text-neutral-300">Achievements</a>
+          <a href="#sessions" onClick={() => setMobileMenuOpen(false)} className="text-lg text-neutral-300">Sessions</a>
+          <a href="#community" onClick={() => setMobileMenuOpen(false)} className="text-lg text-neutral-300">Community</a>
+          <div className="h-px bg-white/10 my-2" />
+          <a href="https://linkedin.com/company/oss-connected" onClick={() => setMobileMenuOpen(false)} className="text-lg text-neutral-300">LinkedIn</a>
+          <a href="https://chat.whatsapp.com/Bw3H2hVoUZy8AZZs96QdUy" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="text-lg text-emerald-400 font-medium">Join us</a>
         </div>
       )}
-    </header>
+    </nav>
   );
 }

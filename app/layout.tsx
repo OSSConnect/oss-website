@@ -1,23 +1,48 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
-import ScrollProgress from "@/components/ScrollProgress";
+import { Bricolage_Grotesque, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  weight: ["500", "600", "700"],
 });
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
-  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "OSS | Let's connect",
-  description:
-    "A community of GSoC contributors and LFX mentees shipping real patches to real projects — and helping the next person send their first PR.",
+  metadataBase: new URL("https://ossconnect.india"),
+  title: "OSS Connect | Empowering India's Open Source Ecosystem",
+  description: "The definitive hub for Indian developers to access resources, connect with mentors, and make meaningful contributions to global open-source projects.",
+  keywords: ["Open Source", "India", "Developers", "Mentorship", "Contributions", "GSoC", "LFX", "CNCF", "Community"],
+  authors: [{ name: "OSS Connect" }],
+  openGraph: {
+    title: "OSS Connect | Empowering India's Open Source Ecosystem",
+    description: "The definitive hub for Indian developers to access resources, connect with mentors, and make meaningful contributions to global open-source projects.",
+    url: "https://ossconnect.india", 
+    siteName: "OSS Connect",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "OSS Connect Open Graph Image",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OSS Connect | Empowering India's Open Source Ecosystem",
+    description: "The definitive hub for Indian developers to access resources, connect with mentors, and make meaningful contributions.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/oss-connect-logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -26,9 +51,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}>
-        <ScrollProgress />
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${bricolage.variable} ${spaceGrotesk.variable} h-full antialiased dark`}
+    >
+      <body className="min-h-full flex flex-col bg-black text-white font-sans selection:bg-white/20 selection:text-white">
         {children}
       </body>
     </html>

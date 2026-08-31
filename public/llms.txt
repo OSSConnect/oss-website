@@ -1,0 +1,29 @@
+# OSSConnect llms.txt
+
+OSSConnect is an open-source initiative dedicated to building India's next generation of open-source contributors. We create accessible pathways for developers to learn open source, make meaningful contributions, collaborate with global communities, and grow into mentors and maintainers.
+
+## Ecosystem & Partners
+We provide exposure to a wide range of organizations, including CNCF, Kubernetes, Kubeflow, Meshery, JSON Schema, OpenSSF, NumFOCUS, and many more.
+
+## Purpose & Direction
+- **Vision**: Make India one of the world's most trusted, collaborative and impact-driven open-source contributor ecosystems.
+- **Mission**: Create accessible pathways for developers to learn open source, make meaningful contributions, collaborate with global communities, and grow into mentors and maintainers.
+- **Values**: 
+  - Open (Learn openly)
+  - Useful (Create value)
+  - Respectful (Respect people)
+  - Consistent (Keep showing up)
+
+## Community Pipeline
+Access -> Contribution -> Mentorship -> Leadership
+
+## Tech Stack (Website)
+- Next.js (App Router)
+- React
+- Tailwind CSS v4
+- Framer Motion (Animations)
+- Lucide React (Icons)
+- Vercel (Hosting)
+
+## Join Us
+Reach out to the community via our official WhatsApp channels or join our GitHub organization: https://github.com/OSSConnect.
