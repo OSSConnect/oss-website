@@ -137,7 +137,7 @@ export const achievers: Achiever[] = [
   { name: "Sumit Goyal", tags: ["Member @ Kubernetes", "GSoC @ JSON Schema", "LFX @ Kmesh", "LFX Mentor"] },
   { name: "Shubhang Sinha", tags: ["GSoC @ DeepChem", "LFX @ Talent Angels"] },
   { name: "Krishna Gupta", tags: ["GSoC @ Kubeflow", "Member @ Kubeflow"] },
-  { name: "Yash Israni", tags: ["Maintainer @ Kmesh", "Member @ Volcano-sh", "LFX Mentor", "OSSP'25 Kmesh"] },
+  { name: "Yash Israni", tags: ["Maintainer @ Kmesh", "Member @ Volcano-sh", "LFX Mentor", "OSPP'25 Kmesh"] },
   { name: "Lakshit Verma", tags: ["GSoC '26", "LiFT '26", "C4GT '25"] },
   { name: "Krrish Biswas", tags: ["GSoC '26 @ Fossology", "LFX '26 @ Minder", "Minder Maintainer", "2× Research Papers"] },
   { name: "Om", tags: ["GSoC '26 @ OpenAstronomy"] },

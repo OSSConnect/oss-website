@@ -104,7 +104,7 @@ Yash Israni
 Maintainer @ Kmesh
 Member @ Volcano-sh
 LFX Mentor
-OSSP'25 Kmesh
+OSPP'25 Kmesh
 LV
 Lakshit Verma
 GSoC '26

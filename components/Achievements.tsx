@@ -9,7 +9,7 @@ const achievers = [
   { initials: "SG", name: "Sumit Goyal", roles: ["Member @ Kubernetes", "GSoC @ JSON Schema", "LFX @ Kmesh", "LFX Mentor"], github: "https://github.com/itvi-1234" },
   { initials: "SS", name: "Shubhang Sinha", roles: ["GSoC @ DeepChem", "LFX @ Talent Angels"] },
   { initials: "KG", name: "Krishna Gupta", roles: ["GSoC @ Kubeflow", "Member @ Kubeflow"], github: "https://github.com/Krishna-kg732" },
-  { initials: "YI", name: "Yash Israni", roles: ["Maintainer @ Kmesh", "Member @ Volcano-sh", "LFX Mentor", "OSSP'25 Kmesh"], github: "https://github.com/Yash-Israni" },
+  { initials: "YI", name: "Yash Israni", roles: ["Maintainer @ Kmesh", "Member @ Volcano-sh", "LFX Mentor", "OSPP'25 Kmesh"], github: "https://github.com/yashisrani" },
   { initials: "LV", name: "Lakshit Verma", roles: ["GSoC '26", "LiFT '26", "C4GT '25"], github: "https://github.com/vee1e" },
   { initials: "KB", name: "Krrish Biswas", roles: ["GSoC '26 @ Fossology", "LFX '26 @ Minder", "Minder Maintainer", "2× Research Papers"], github: "https://github.com/krrish175-byte" },
   { initials: "O", name: "Om", roles: ["GSoC '26 @ OpenAstronomy"] },
