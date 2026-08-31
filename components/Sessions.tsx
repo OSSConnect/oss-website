@@ -1,10 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquareQuote, BookOpen, Target, Search, HeartHandshake, Mic, FileText } from "lucide-react";
 import { sessionTopics, sessionFeedback } from "@/lib/data";
 import WavyUnderline from "./WavyUnderline";
+
+const eventHighlights = [
+  {
+    image: "/events/redhat-aayush-session.png",
+    title: "Session with Aayush Saini (SDE 3, Red Hat)",
+    detail: "An online community discussion on open source, careers and contribution strategy.",
+  },
+  {
+    image: "/events/iiit-kota-session.png",
+    title: "Offline Meetup at IIIT Kota",
+    detail: "An in-person session with students on getting started and staying consistent in open source.",
+  },
+];
 
 const icons = [
   <BookOpen key="1" className="w-6 h-6" />,
@@ -146,6 +160,39 @@ export default function Sessions() {
               <p className="text-neutral-300 text-lg font-medium italic leading-relaxed">"{quote}"</p>
             </motion.div>
           ))}
+        </div>
+
+        {/* Event Highlights */}
+        <div className="mt-24">
+          <h3 className="text-2xl md:text-3xl font-display text-white mb-8">
+            Event highlights
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {eventHighlights.map((event, i) => (
+              <motion.div
+                key={event.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + i * 0.1 }}
+                className="group overflow-hidden rounded-[2rem] border border-white/10 bg-[#050505] hover:border-emerald-500/30 transition-colors"
+              >
+                <div className="relative w-full aspect-video overflow-hidden">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                  />
+                </div>
+                <div className="p-6 md:p-8">
+                  <h4 className="text-white font-display text-xl mb-2">{event.title}</h4>
+                  <p className="text-neutral-400 text-base leading-relaxed">{event.detail}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
       </div>
