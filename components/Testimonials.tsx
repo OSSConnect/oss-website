@@ -62,10 +62,10 @@ export default function Testimonials() {
       </div>
 
       <div className="relative flex whitespace-nowrap group">
-        <div className="flex shrink-0 animate-[marquee_40s_linear_infinite] group-hover:[animation-play-state:paused] min-w-full justify-around">
+        <div className="flex shrink-0 animate-[marquee_70s_linear_infinite] group-hover:[animation-play-state:paused] min-w-full justify-around">
           {items.map((item, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className="w-[400px] md:w-[500px] mx-4 md:mx-6 flex-shrink-0 border border-white/10 bg-[#0a0a0a] p-8 md:p-10 rounded-tl-[48px] rounded-br-[48px] rounded-tr-xl rounded-bl-xl hover:border-emerald-500/30 transition-colors whitespace-normal"
             >
               <div className="text-emerald-500 text-4xl font-display mb-4 leading-none">"</div>
@@ -79,10 +79,10 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
-        <div className="flex shrink-0 animate-[marquee_40s_linear_infinite] group-hover:[animation-play-state:paused] min-w-full justify-around">
+        <div className="flex shrink-0 animate-[marquee_70s_linear_infinite] group-hover:[animation-play-state:paused] min-w-full justify-around">
           {items.map((item, i) => (
-            <div 
-              key={`dup-${i}`} 
+            <div
+              key={`dup-${i}`}
               className="w-[400px] md:w-[500px] mx-4 md:mx-6 flex-shrink-0 border border-white/10 bg-[#0a0a0a] p-8 md:p-10 rounded-tl-[48px] rounded-br-[48px] rounded-tr-xl rounded-bl-xl hover:border-emerald-500/30 transition-colors whitespace-normal"
             >
               <div className="text-emerald-500 text-4xl font-display mb-4 leading-none">"</div>
