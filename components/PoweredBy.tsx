@@ -1,11 +1,6 @@
 "use client";
 
-const platforms = [
-  "CNCF", "Kubernetes", "Kubeflow", "Headlamp", "Jaeger", "Kiwix", 
-  "JSON Schema", "Meshery", "PipeCD", "DeepChem", "Fossology", 
-  "Kmesh", "OpenWISP", "SugarLabs", "NumFOCUS", "Open Science Labs", 
-  "OpenSSF", "Flare", "C2SI"
-];
+import { ecosystemOrgs } from "@/lib/data";
 
 export default function PoweredBy() {
   return (
@@ -18,10 +13,16 @@ export default function PoweredBy() {
           Exposure across a wide range of organisations
         </p>
         <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 md:gap-x-16 opacity-70 hover:opacity-100 transition-opacity duration-500">
-          {platforms.map((platform, i) => (
-            <div key={i} className="text-xl md:text-2xl font-display font-bold text-white tracking-tight text-neutral-400 hover:text-emerald-400 transition-colors">
-              {platform}
-            </div>
+          {ecosystemOrgs.map((org, i) => (
+            <a
+              key={i}
+              href={org.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl md:text-2xl font-display font-bold text-neutral-400 hover:text-emerald-400 transition-colors cursor-pointer"
+            >
+              {org.name}
+            </a>
           ))}
         </div>
       </div>
