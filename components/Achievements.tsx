@@ -5,7 +5,23 @@ import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp, ArrowUpRight } from "lucide-react";
 import WavyUnderline from "./WavyUnderline";
 
-const achievers = [
+interface Achiever {
+  initials: string;
+  name: string;
+  roles: string[];
+  github?: string;
+}
+
+const recentLfxAchievers: Achiever[] = [
+  { initials: "S", name: "Suhani", roles: ["LFX '26 @ Kyverno"] },
+  { initials: "GP", name: "Gaurav Patil", roles: ["LFX '26 @ Kmesh"] },
+  { initials: "AK", name: "Athang Kali", roles: ["LFX '26 @ Headlamp"] },
+  { initials: "A", name: "Avinash", roles: ["LFX '26 @ Volcano"] },
+  { initials: "HG", name: "Harshit Ghagre", roles: ["LFX '26 @ PipeCD"] },
+  { initials: "DC", name: "Dolly Chahar", roles: ["LFX '26 @ Kubescape"] },
+];
+
+const achievers: Achiever[] = [
   { initials: "SG", name: "Sumit Goyal", roles: ["Member @ Kubernetes", "GSoC @ JSON Schema", "LFX @ Kmesh", "LFX Mentor"], github: "https://github.com/itvi-1234" },
   { initials: "SS", name: "Shubhang Sinha", roles: ["GSoC @ DeepChem", "LFX @ Talent Angels"] },
   { initials: "KG", name: "Krishna Gupta", roles: ["GSoC @ Kubeflow", "Member @ Kubeflow"], github: "https://github.com/Krishna-kg732" },
@@ -32,6 +48,62 @@ const achievers = [
   { initials: "AK", name: "Ayush Kumar", roles: ["LFX '26 @ KRKN-Chaos"] },
 ];
 
+function AchieverCard({ achiever, index }: { achiever: Achiever; index: number }) {
+  const innerContent = (
+    <>
+      {achiever.github && (
+        <div key="link" className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+          <ArrowUpRight className="w-5 h-5 text-neutral-500 group-hover:text-emerald-400 transition-colors" />
+        </div>
+      )}
+      
+      <div key="avatar" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white font-display text-xl mb-6 group-hover:bg-emerald-500/20 group-hover:border-emerald-500/40 group-hover:text-emerald-400 transition-all duration-300 overflow-hidden relative">
+        {achiever.github ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img src={`${achiever.github}.png`} alt={achiever.name} className="w-full h-full object-cover" />
+        ) : (
+          achiever.initials
+        )}
+      </div>
+      <h3 key="name" className="text-xl font-display text-white mb-4 pr-6">{achiever.name}</h3>
+      <div key="roles" className="space-y-2 mt-auto">
+        {achiever.roles.map((role, idx) => (
+          <div key={idx} className="text-sm text-neutral-400 flex items-start gap-2">
+            <span className="text-emerald-500 mt-0.5">✦</span>
+            <span>{role}</span>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+
+  const commonProps = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-50px" },
+    transition: { duration: 0.5, delay: (index % 8) * 0.1 },
+    className: `bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 hover:border-emerald-500/30 transition-colors group h-full flex flex-col relative ${
+      achiever.github ? "cursor-pointer hover:bg-emerald-500/5" : ""
+    }`
+  };
+  
+  return achiever.github ? (
+    <motion.a 
+      key={`${achiever.name}-${index}`}
+      href={achiever.github} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      {...commonProps}
+    >
+      {innerContent}
+    </motion.a>
+  ) : (
+    <motion.div key={`${achiever.name}-${index}`} {...commonProps}>
+      {innerContent}
+    </motion.div>
+  );
+}
+
 export default function Achievements() {
   const [showAll, setShowAll] = useState(false);
   const visibleAchievers = showAll ? achievers : achievers.slice(0, 8);
@@ -49,78 +121,55 @@ export default function Achievements() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {visibleAchievers.map((achiever, i) => {
-            const innerContent = (
-              <>
-                {achiever.github && (
-                  <div key="link" className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ArrowUpRight className="w-5 h-5 text-neutral-500 group-hover:text-emerald-400 transition-colors" />
-                  </div>
-                )}
-                
-                <div key="avatar" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white font-display text-xl mb-6 group-hover:bg-emerald-500/20 group-hover:border-emerald-500/40 group-hover:text-emerald-400 transition-all duration-300 overflow-hidden relative">
-                  {achiever.github ? (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img src={`${achiever.github}.png`} alt={achiever.name} className="w-full h-full object-cover" />
-                  ) : (
-                    achiever.initials
-                  )}
-                </div>
-                <h3 key="name" className="text-xl font-display text-white mb-4 pr-6">{achiever.name}</h3>
-                <div key="roles" className="space-y-2 mt-auto">
-                  {achiever.roles.map((role, idx) => (
-                    <div key={idx} className="text-sm text-neutral-400 flex items-start gap-2">
-                      <span className="text-emerald-500 mt-0.5">✦</span>
-                      <span>{role}</span>
-                    </div>
-                  ))}
-                </div>
-              </>
-            );
+        {/* Recent Achievements — LFX 2026 */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
+            <h3 className="text-xl md:text-2xl font-display text-white tracking-tight">
+              Recent Achievements — LFX 2026
+            </h3>
+            <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono">
+              Latest
+            </span>
+          </div>
 
-            const commonProps = {
-              initial: { opacity: 0, y: 20 },
-              whileInView: { opacity: 1, y: 0 },
-              viewport: { once: true, margin: "-50px" },
-              transition: { duration: 0.5, delay: (i % 8) * 0.1 },
-              className: `bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 hover:border-emerald-500/30 transition-colors group h-full flex flex-col relative ${
-                achiever.github ? "cursor-pointer hover:bg-emerald-500/5" : ""
-              }`
-            };
-            
-            return achiever.github ? (
-              <motion.a 
-                key={`${achiever.name}-${i}`}
-                href={achiever.github} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                {...commonProps}
-              >
-                {innerContent}
-              </motion.a>
-            ) : (
-              <motion.div key={`${achiever.name}-${i}`} {...commonProps}>
-                {innerContent}
-              </motion.div>
-            );
-          })}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recentLfxAchievers.map((achiever, i) => (
+              <AchieverCard key={`recent-${achiever.name}-${i}`} achiever={achiever} index={i} />
+            ))}
+          </div>
         </div>
-        
-        <div className="mt-16 flex justify-center">
-          <button 
-            onClick={() => setShowAll(!showAll)}
-            className="group flex items-center gap-2 px-8 py-3 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all duration-300 font-medium"
-          >
-            {showAll ? "Show less" : `View all ${achievers.length} achievers`}
-            {showAll ? (
-              <ChevronUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
-            ) : (
-              <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
-            )}
-          </button>
+
+        {/* All Community Achievers */}
+        <div>
+          <div className="flex items-center gap-3 mb-8">
+            <h3 className="text-xl md:text-2xl font-display text-neutral-300 tracking-tight">
+              All Community Achievers
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {visibleAchievers.map((achiever, i) => (
+              <AchieverCard key={`all-${achiever.name}-${i}`} achiever={achiever} index={i} />
+            ))}
+          </div>
+          
+          <div className="mt-16 flex justify-center">
+            <button 
+              onClick={() => setShowAll(!showAll)}
+              className="group flex items-center gap-2 px-8 py-3 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all duration-300 font-medium cursor-pointer"
+            >
+              {showAll ? "Show less" : `View all ${achievers.length} achievers`}
+              {showAll ? (
+                <ChevronUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
+              ) : (
+                <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
