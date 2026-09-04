@@ -33,12 +33,27 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Offset anchor targets so headings sit below the fixed navbar */
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
 /* Hide scrollbar for clean aesthetic but keep functionality */
