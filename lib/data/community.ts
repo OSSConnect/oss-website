@@ -90,7 +90,7 @@ export const members = [
 
 export const testimonials = [
   {
-    quote: "Found both Sumit and Yash via LinkedIn, and they shared the link... insights, the people around and the overall mentorship not just by the mods but by the entire community helped me a lot, exactly like OSS!",
+    quote: "Found the community via LinkedIn, and they shared the link... insights, the people around and the overall mentorship not just by the mods but by the entire community helped me a lot, exactly like OSS!",
     author: "Community Member",
   },
   {
