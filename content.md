@@ -99,12 +99,6 @@ KG
 Krishna Gupta
 GSoC @ Kubeflow
 Member @ Kubeflow
-YI
-Yash Israni
-Maintainer @ Kmesh
-Member @ Volcano-sh
-LFX Mentor
-OSPP'25 Kmesh
 LV
 Lakshit Verma
 GSoC '26
