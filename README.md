@@ -2,7 +2,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+Get a local copy of the project running:
+```bash
+#clone the repo
+git clone https://github.com/OSSConnect/oss-website.git
+cd oss-website
+
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
